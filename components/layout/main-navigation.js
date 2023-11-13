@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function MainNavigation(props) {
   return (
     <>
-      <ul className="flex justify-end">
-        <Link className="m-4" href="/">
+      <ul className="flex justify-center ">
+        <Link className="m-4 " href="/">
           Home
         </Link>
         <Link className="m-4" href="/milan">
