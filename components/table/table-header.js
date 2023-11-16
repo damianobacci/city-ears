@@ -1,8 +1,8 @@
 export default function TableHeader(props) {
   return (
-    <thead className="uppercase">
-      <tr className="p-4">
-        <th className="p-4">📅</th>
+    <thead>
+      <tr>
+        <th>📅</th>
         <th>🎶</th>
         <th>📍</th>
         <th>💶</th>
