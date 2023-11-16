@@ -10,6 +10,13 @@ const DUMMY_DATA = [
     venue: "Magazzini Generali",
     price: 23,
     tickets: "/milan",
+  },
+  {
+    id: 1,
+    artist: "A Silver Mount Zion",
+    date: "22nd March",
+    venue: "Magazzini Generali",
+    price: 23,
     instagram: "/milan",
   },
   {
@@ -18,17 +25,7 @@ const DUMMY_DATA = [
     date: "22nd March",
     venue: "Magazzini Generali",
     price: 23,
-    tickets: "/milan",
-    instagram: "/milan",
-  },
-  {
-    id: 1,
-    artist: "A Silver Mount Zion",
-    date: "22nd March",
-    venue: "Magazzini Generali",
-    price: 23,
-    tickets: "/milan",
-    instagram: "/milan",
+    facebook: "/milan",
   },
 ];
 

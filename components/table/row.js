@@ -11,7 +11,7 @@ export default function Row(props) {
       <td className="px-2 py-4">
         {props.tickets && (
           <Link href={props.tickets}>
-            <Image src="/tickets.png" alt="Tickets" width={16} height={16} />
+            <Image src="/tickets.png" alt="Tickets" width={25} height={25} />
           </Link>
         )}
         {props.instagram && (
@@ -19,9 +19,14 @@ export default function Row(props) {
             <Image
               src="/instagram.png"
               alt="Instagram"
-              width={16}
-              height={16}
+              width={25}
+              height={25}
             />
+          </Link>
+        )}
+        {props.facebook && (
+          <Link href={props.facebook}>
+            <Image src="/facebook.png" alt="Facebook" width={25} height={25} />
           </Link>
         )}
       </td>

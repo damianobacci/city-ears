@@ -25,7 +25,7 @@ const DUMMY_DATA = [
     date: "22nd March",
     venue: "Magazzini Generali",
     price: 23,
-    tickets: "/milan",
+    facebook: "/milan",
   },
 ];
 
