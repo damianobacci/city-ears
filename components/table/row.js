@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Row(props) {
   return (
@@ -8,22 +9,26 @@ export default function Row(props) {
       <td className="px-4 py-4">{props.venue}</td>
       <td className="px-4 py-4">{props.price}€</td>
       <td className="px-4 py-4">
-        <Link href={props.tickets}>
+        {props.tickets && (
+          <Link href={props.tickets}>
+            <Image
+              className="inline mx-2"
+              src="/tickets.png"
+              alt="Tickets"
+              width={16}
+              height={16}
+            />
+          </Link>
+        )}
+        {props.instagram && (
           <Image
-            className="inline mx-2"
-            src="/tickets.png"
-            alt="Tickets"
+            className="inline"
+            src="/instagram.png"
+            alt="Instagram"
             width={16}
             height={16}
           />
-        </Link>
-        {/* <Image
-          className="inline"
-          src="/instagram.png"
-          alt="Instagram"
-          width={16}
-          height={16}
-        /> */}
+        )}
       </td>
     </tr>
   );

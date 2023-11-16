@@ -1,4 +1,4 @@
-export default function Header(props) {
+export default function TableHeader(props) {
   return (
     <thead className="uppercase">
       <tr className="p-4">
