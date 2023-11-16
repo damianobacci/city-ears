@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Row(props) {
   return (
-    <tr>
+    <tr className="text-center">
       <td className="px-4 py-4">{props.date}</td>
       <td className="px-4 py-4">{props.artist}</td>
       <td className="px-4 py-4">{props.venue}</td>

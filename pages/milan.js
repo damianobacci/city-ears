@@ -1,5 +1,5 @@
 import Header from "@/components/layout/header";
-import TableHeader from "@/components/table/table-header";
+import Table from "@/components/table/table";
 import Row from "@/components/table/row";
 
 const DUMMY_DATA = [
@@ -36,14 +36,11 @@ export default function Milan() {
   return (
     <>
       <Header>List of gigs in Milan</Header>
-      <table className="table-fixed m-auto mb-10 text-xl border-separate">
-        <TableHeader />
-        <tbody>
-          {DUMMY_DATA.map((item) => (
-            <Row key={item.id} {...item} />
-          ))}
-        </tbody>
-      </table>
+      <Table>
+        {DUMMY_DATA.map((item) => (
+          <Row key={item.id} {...item} />
+        ))}
+      </Table>
     </>
   );
 }
