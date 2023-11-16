@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Row(props) {
   return (
-    <tr className="text-center">
+    <tr className="">
       <td className="px-4 py-4">{props.date}</td>
       <td className="px-4 py-4">{props.artist}</td>
       <td className="px-4 py-4">{props.venue}</td>
@@ -15,19 +15,21 @@ export default function Row(props) {
               className="inline mx-2"
               src="/tickets.png"
               alt="Tickets"
-              width={16}
-              height={16}
+              width={20}
+              height={20}
             />
           </Link>
         )}
         {props.instagram && (
-          <Image
-            className="inline"
-            src="/instagram.png"
-            alt="Instagram"
-            width={16}
-            height={16}
-          />
+          <Link href={props.instagram}>
+            <Image
+              className="inline mx-2"
+              src="/instagram.png"
+              alt="Instagram"
+              width={20}
+              height={20}
+            />
+          </Link>
         )}
       </td>
     </tr>
