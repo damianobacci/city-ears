@@ -16,7 +16,7 @@ export default function MainNavigation(props) {
         </Link>
       </ul>
       {props.children}
-      <Link className="flex justify-center" href="/">
+      <Link className="flex justify-center" href="/contribute">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full uppercase">
           Want to contribute?
         </button>
