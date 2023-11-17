@@ -6,7 +6,7 @@ const DUMMY_DATA = [
   {
     id: 1,
     artist: "A Silver Mount Zion",
-    date: "22nd March",
+    date: "22nd February",
     venue: "Magazzini Generali",
     price: 23,
     tickets: "/milan",
