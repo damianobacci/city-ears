@@ -3,10 +3,15 @@ import Header from "@/components/layout/header";
 export default function AddEvent() {
   function sendEventHandler(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
     fetch("/api/gigs", {
       method: "POST",
-      body: {},
+      body: JSON.stringify({ ...data }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
   }
 
@@ -19,15 +24,15 @@ export default function AddEvent() {
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-first-name"
+                for="date"
               >
                 Date
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="grid-first-name"
+                id="date"
                 type="date"
-                placeholder="Jane"
+                name="date"
               />
               <p class="text-red-500 text-xs italic">
                 Please fill out this field.
@@ -36,15 +41,16 @@ export default function AddEvent() {
             <div class="w-full md:w-1/2 px-3">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-last-name"
+                for="venue"
               >
                 Venue
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-last-name"
+                id="venue"
+                name="venue"
                 type="text"
-                placeholder="Doe"
+                placeholder="Venue"
               />
             </div>
           </div>
@@ -52,15 +58,16 @@ export default function AddEvent() {
             <div class="w-full px-3">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-password"
+                for="artist"
               >
                 Artist
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-password"
-                type="password"
-                placeholder="******************"
+                id="artist"
+                name="artist"
+                type="text"
+                placeholder="Artist"
               />
               <p class="text-gray-600 text-xs italic">
                 Make it as long and as crazy as you'd like
@@ -71,32 +78,34 @@ export default function AddEvent() {
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-city"
+                for="price"
               >
                 Price in Euro
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-city"
-                type="text"
-                placeholder="Albuquerque"
+                id="price"
+                name="price"
+                type="number"
+                placeholder="Price"
               />
             </div>
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-state"
+                for="city"
               >
                 City
               </label>
               <div class="relative">
                 <select
                   class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="grid-state"
+                  id="city"
+                  name="city"
                 >
-                  <option>Milan</option>
-                  <option>Turin</option>
-                  <option>Rome</option>
+                  <option value="milan">Milan</option>
+                  <option value="turin">Turin</option>
+                  <option value="rome">Rome</option>
                 </select>
                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
@@ -114,50 +123,59 @@ export default function AddEvent() {
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-city"
+                for="tickets"
               >
                 Tickets link
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-city"
+                id="tickets"
+                name="tickets"
                 type="text"
-                placeholder="Albuquerque"
+                placeholder="Tickets link"
               />
             </div>
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-city"
+                for="instagram"
               >
                 Instagram link
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-city"
+                id="instagram"
+                name="instagram"
                 type="text"
-                placeholder="Albuquerque"
+                placeholder="Instagram link"
               />
             </div>
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="grid-city"
+                for="facebook"
               >
                 Facebook link
               </label>
               <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-city"
+                id="facebook"
+                name="facebook"
                 type="text"
-                placeholder="Albuquerque"
+                placeholder="Facebook link"
               />
             </div>
           </div>
-          <button className="border p-2" type="submit">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full uppercase"
+            type="submit"
+          >
             Submit event
           </button>
-          <button className="border p-2" type="reset">
+          <button
+            className="hover:bg-gray-700 hover:text-white font-bold py-2 px-4 rounded-full uppercase"
+            type="reset"
+          >
             Reset
           </button>
         </form>
