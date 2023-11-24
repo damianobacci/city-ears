@@ -1,11 +1,20 @@
 import Header from "@/components/layout/header";
 
 export default function AddEvent() {
+  function sendEventHandler(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    fetch("/api/gigs", {
+      method: "POST",
+      body: {},
+    });
+  }
+
   return (
     <>
       <Header>Add an event</Header>
       <div class="flex items-center justify-center">
-        <form class="w-full max-w-lg">
+        <form onSubmit={sendEventHandler} class="w-full max-w-lg">
           <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
