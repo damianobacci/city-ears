@@ -1,5 +1,7 @@
 import { MongoClient } from "mongodb";
 
+const URI = process.env.MONGODB_URI;
+
 export default function handler(req, res) {
   if (req.method === "GET") {
     res.status(200).json({ message: "Lolz" });
@@ -20,6 +22,7 @@ export default function handler(req, res) {
     //   instagram,
     //   facebook,
     // };
+    MongoClient.connect(URI);
     res.status(201).json({ message: "Successfully stored event!" });
   }
 }
