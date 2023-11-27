@@ -16,7 +16,10 @@ export default function handler(req, res) {
       !city ||
       !tickets ||
       !instagram ||
-      !facebook
+      !facebook ||
+      !tickets.includes("http") ||
+      !facebook.includes("http") ||
+      !instagram.includes("http")
     ) {
       res.status(422).json({ message: "Invalid data" });
       return;
