@@ -6,14 +6,31 @@ export default function handler(req, res) {
   if (req.method === "GET") {
     res.status(200).json({ message: "Lolz" });
   } else if (req.method === "POST") {
-    const newEvent = req.body;
-    console.log(newEvent);
-    // if (!date || !city) {
-    //   res.status(422).json({ message: "Invalid data" });
-    //   return;
-    //   //add other server-side validation!
-    // }
-
+    const { date, venue, artist, price, city, tickets, instagram, facebook } =
+      req.body;
+    if (
+      !date ||
+      !venue ||
+      !artist ||
+      !price ||
+      !city ||
+      !tickets ||
+      !instagram ||
+      !facebook
+    ) {
+      res.status(422).json({ message: "Invalid data" });
+      return;
+    }
+    const newEvent = {
+      date,
+      venue,
+      artist,
+      price,
+      city,
+      tickets,
+      instagram,
+      facebook,
+    };
     MongoClient.connect(URI).then((client) => {
       const db = client.db();
       db.collection("gigslist").insertOne(newEvent);

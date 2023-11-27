@@ -5,7 +5,6 @@ export default function AddEvent() {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
     fetch("/api/gigs", {
       method: "POST",
       body: JSON.stringify({ ...data }),
