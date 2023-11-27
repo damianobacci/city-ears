@@ -2,9 +2,18 @@ import { MongoClient } from "mongodb";
 
 const URI = process.env.MONGODB_URI;
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === "GET") {
-    res.status(200).json({ message: "Lolz" });
+    const client = await MongoClient.connect(URI);
+    const db = client.db();
+    const gigs = await db
+      .collection("gigslist")
+      .find()
+      .sort({
+        _id: -1,
+      })
+      .toArray();
+    res.status(200).json({ data: gigs });
   } else if (req.method === "POST") {
     const { date, venue, artist, price, city, tickets, instagram, facebook } =
       req.body;
@@ -34,10 +43,10 @@ export default function handler(req, res) {
       instagram,
       facebook,
     };
-    MongoClient.connect(URI).then((client) => {
-      const db = client.db();
-      db.collection("gigslist").insertOne(newEvent);
-    });
+    const client = await MongoClient.connect(URI);
+    const db = client.db();
+    await db.collection("gigslist").insertOne(newEvent);
+    client.close();
     res.status(201).json({ message: "Successfully stored event!" });
   }
 }
