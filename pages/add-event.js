@@ -3,8 +3,10 @@ import Header from "@/components/layout/header";
 export default function AddEvent() {
   function sendEventHandler(event) {
     event.preventDefault();
+    console.log(event.target);
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
+    console.log(data);
     fetch("/api/gigs", {
       method: "POST",
       body: JSON.stringify({ ...data }),
@@ -17,35 +19,35 @@ export default function AddEvent() {
   return (
     <>
       <Header>Add an event</Header>
-      <div class="flex items-center justify-center">
-        <form onSubmit={sendEventHandler} class="w-full max-w-lg">
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div className="flex items-center justify-center">
+        <form onSubmit={sendEventHandler} className="w-full max-w-lg">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="date"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="date"
               >
                 Date
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 id="date"
                 type="date"
                 name="date"
               />
-              <p class="text-red-500 text-xs italic">
+              <p className="text-red-500 text-xs italic">
                 Please fill out this field.
               </p>
             </div>
-            <div class="w-full md:w-1/2 px-3">
+            <div className="w-full md:w-1/2 px-3">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="venue"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="venue"
               >
                 Venue
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="venue"
                 name="venue"
                 type="text"
@@ -53,52 +55,52 @@ export default function AddEvent() {
               />
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full px-3">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="artist"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="artist"
               >
                 Artist
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="artist"
                 name="artist"
                 type="text"
                 placeholder="Artist"
               />
-              <p class="text-gray-600 text-xs italic">
+              <p className="text-gray-600 text-xs italic">
                 Make it as long and as crazy as you'd like
               </p>
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-2">
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+          <div className="flex flex-wrap -mx-3 mb-2">
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="price"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="price"
               >
                 Price in Euro
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="price"
                 name="price"
                 type="number"
                 placeholder="Price"
               />
             </div>
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="city"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="city"
               >
                 City
               </label>
-              <div class="relative">
+              <div className="relative">
                 <select
-                  class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="city"
                   name="city"
                 >
@@ -106,9 +108,9 @@ export default function AddEvent() {
                   <option value="turin">Turin</option>
                   <option value="rome">Rome</option>
                 </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
-                    class="fill-current h-4 w-4"
+                    className="fill-current h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -118,46 +120,46 @@ export default function AddEvent() {
               </div>
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-2">
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+          <div className="flex flex-wrap -mx-3 mb-2">
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="tickets"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="tickets"
               >
                 Tickets link
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="tickets"
                 name="tickets"
                 type="text"
                 placeholder="Tickets link"
               />
             </div>
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="instagram"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="instagram"
               >
                 Instagram link
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="instagram"
                 name="instagram"
                 type="text"
                 placeholder="Instagram link"
               />
             </div>
-            <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                for="facebook"
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="facebook"
               >
                 Facebook link
               </label>
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="facebook"
                 name="facebook"
                 type="text"
