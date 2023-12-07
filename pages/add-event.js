@@ -19,7 +19,7 @@ export default function AddEvent() {
   return (
     <>
       <Header>Add an event</Header>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center p-4">
         <form onSubmit={sendEventHandler} className="w-full max-w-lg">
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
