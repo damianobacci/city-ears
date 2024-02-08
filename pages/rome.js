@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 
 export default function Rome() {
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("api/gigs")
       .then((response) => response.json())
       .then((gigs) => {
@@ -15,8 +17,18 @@ export default function Rome() {
           (item) => item.city.toLowerCase() === "rome"
         );
         setComments(romeGigs);
+        setIsLoading(false);
       });
   }, []);
+
+  if (isLoading) {
+    return (
+      <>
+        <Header>List of gigs in Milan</Header>
+        <div>Loading...</div>
+      </>
+    );
+  }
 
   return (
     <>
