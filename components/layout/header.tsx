@@ -1,7 +1,7 @@
-export default function Header(props) {
+export default function Header({ children }) {
   return (
     <h1 className="m-auto my-16 text-center text-3xl uppercase font-black">
-      {props.children}
+      {children}
     </h1>
   );
 }

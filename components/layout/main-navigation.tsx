@@ -1,7 +1,7 @@
 import Link from "next/link";
 import City from "./city";
 
-export default function MainNavigation(props) {
+export default function MainNavigation({ children }) {
   return (
     <>
       <ul className="flex justify-center m-6 flex-wrap">
@@ -15,7 +15,7 @@ export default function MainNavigation(props) {
           <City src="/rome.png" alt={"Rome"} />
         </Link>
       </ul>
-      {props.children}
+      {children}
       <Link className="flex justify-center" href="/contribute">
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full uppercase">
           Want to contribute?
