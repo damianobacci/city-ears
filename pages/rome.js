@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header";
 import Table from "@/components/table/table";
 import Row from "@/components/table/row";
+import Loading from "@/components/layout/loading";
 
 import { useEffect, useState } from "react";
 
@@ -25,7 +26,7 @@ export default function Rome() {
     return (
       <>
         <Header>List of gigs in Rome</Header>
-        <div>Loading...</div>
+        <Loading />
       </>
     );
   }
