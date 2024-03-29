@@ -5,7 +5,7 @@ import Row from "@/components/table/row";
 import { useEffect, useState } from "react";
 
 export default function Turin() {
-  const [comments, setComments] = useState([]);
+  const [gigs, setGigs] = useState([]);
   const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Turin() {
         const turinGigs = gigs.data.filter(
           (item) => item.city.toLowerCase() === "turin"
         );
-        setComments(turinGigs);
+        setGigs(turinGigs);
         setIsLoading(false);
       });
   }, []);
@@ -24,7 +24,7 @@ export default function Turin() {
   if (isLoading) {
     return (
       <>
-        <Header>List of gigs in Milan</Header>
+        <Header>List of gigs in Turin</Header>
         <div>Loading...</div>
       </>
     );
@@ -34,7 +34,7 @@ export default function Turin() {
     <>
       <Header>List of gigs in Turin</Header>
       <Table>
-        {comments.map((item) => (
+        {gigs.map((item) => (
           <Row key={item._id} {...item} />
         ))}
       </Table>

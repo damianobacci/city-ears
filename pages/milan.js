@@ -5,7 +5,7 @@ import Row from "@/components/table/row";
 import { useEffect, useState } from "react";
 
 export default function Milan() {
-  const [comments, setComments] = useState([]);
+  const [gigs, setGigs] = useState([]);
   const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Milan() {
         const milanGigs = data.data.filter(
           (item) => item.city.toLowerCase() === "milan"
         );
-        setComments(milanGigs);
+        setGigs(milanGigs);
         setIsLoading(false);
       });
   }, []);
@@ -34,7 +34,7 @@ export default function Milan() {
     <>
       <Header>List of gigs in Milan</Header>
       <Table>
-        {comments.map((item) => (
+        {gigs.map((item) => (
           <Row key={item._id} {...item} />
         ))}
       </Table>

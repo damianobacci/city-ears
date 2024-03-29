@@ -5,7 +5,7 @@ import Row from "@/components/table/row";
 import { useEffect, useState } from "react";
 
 export default function Rome() {
-  const [comments, setComments] = useState([]);
+  const [gigs, setGigs] = useState([]);
   const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Rome() {
         const romeGigs = gigs.data.filter(
           (item) => item.city.toLowerCase() === "rome"
         );
-        setComments(romeGigs);
+        setGigs(romeGigs);
         setIsLoading(false);
       });
   }, []);
@@ -24,7 +24,7 @@ export default function Rome() {
   if (isLoading) {
     return (
       <>
-        <Header>List of gigs in Milan</Header>
+        <Header>List of gigs in Rome</Header>
         <div>Loading...</div>
       </>
     );
@@ -34,7 +34,7 @@ export default function Rome() {
     <>
       <Header>List of gigs in Rome</Header>
       <Table>
-        {comments.map((item) => (
+        {gigs.map((item) => (
           <Row key={item._id} {...item} />
         ))}
       </Table>
