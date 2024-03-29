@@ -25,7 +25,7 @@ export default function Milan() {
     return (
       <>
         <Header>List of gigs in Milan</Header>
-        <div>Loading...</div>
+        <div>Loading.....</div>
       </>
     );
   }
