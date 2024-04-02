@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 
-export default function useFetchGigsByCity(city) {
+type returnProps = {
+  isLoading: boolean;
+  gigs: [];
+  error: string | null;
+};
+
+export default function useFetchGigsByCity(city: string): returnProps {
   const [isLoading, setIsLoading] = useState(false);
   const [gigs, setGigs] = useState([]);
   const [error, setError] = useState(null);
@@ -21,7 +27,7 @@ export default function useFetchGigsByCity(city) {
         );
         setGigs(filteredGigs);
       } catch (error) {
-        setError(error.message);
+        setError(error!.message);
       } finally {
         setIsLoading(false);
       }

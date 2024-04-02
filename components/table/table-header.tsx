@@ -2,7 +2,7 @@ export default function TableHeader(props) {
   return (
     <thead>
       <tr>
-        <th></th>
+        <th>Date</th>
         <th></th>
         <th></th>
         <th></th>
