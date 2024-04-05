@@ -10,7 +10,7 @@ export default function Milan() {
   if (isLoading) {
     return (
       <>
-        <Header>List of gigs in Milan..</Header>
+        <Header>List of gigs in Milan</Header>
         <Loading />
       </>
     );
